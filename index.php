@@ -13,7 +13,7 @@
 
 <?php   
  $host = '127.0.0.1';
- $db   = 'sakila';
+ $db   = 'employees';
  $user = 'root';
  $pass = '';
  $charset = 'utf8';
@@ -26,47 +26,11 @@
  ];
  $pdo = new PDO($dsn, $user, $pass, $opt);
 
- $stmt = $pdo->query('SELECT * FROM film LIMIT 25');
+ $stmt = $pdo->query('SELECT * FROM employees LIMIT 25');
 
 
 ?>
-<h1> Sakila Database!</h1>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-       <?php
-        while ($row = $stmt->fetch())
-        { ?>
-              <tr>
-            <td><?=$row['film_id']?></td>
-            <td><?=$row['title']?></td>
-            <td><?=$row['description']?></td>
-            <td></td>
-        </tr>
-        <?php
-    }
-    ?>
-
-    </tbody>
-</table>
-
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
 </body>
 
 </html>
